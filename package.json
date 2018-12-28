@@ -4,7 +4,7 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "npm run lint:js && npm run lint:style",
+    "lint": "yarn lint:js && yarn lint:style",
     "lint:js": "eslint packages/**/*.js",
     "lint:style": "stylelint packages/**/*.less"
   },
@@ -19,7 +19,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
+      "pre-commit": "yarn lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }

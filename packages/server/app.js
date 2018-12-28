@@ -10,7 +10,6 @@ const ErrorHandler = require('./middlewares/error-handler');
 require('./db');
 
 const app = module.exports = new Koa();
-
 // middleware
 app
   .use(koaBody({
@@ -27,8 +26,9 @@ app
     }
   }))
   .use(koaJwt({
+    cookie: 'SESSION',
     secret: config.secret,
-    passthrough: true
+    passthrough: true // 使其始终传递到下一个中间件
   }))
   .use(ErrorHandler.handleError);
 

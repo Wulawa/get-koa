@@ -82,8 +82,10 @@ class User extends Base {
         expiresIn: '1h'
       }
     );
-
-    ctx.body = `Bearer ${token}`;
+    ctx.cookies.set('SESSION', token, { httpOnly: true });
+    ctx.body = {
+      msg: '登录成功'
+    };
   }
 
   // 获取当前用户信息
